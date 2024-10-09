@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Hackathon Event</title>
+    <!-- Changa and Antonio Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@400;500;600;700&family=Antonio:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* General Styles */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Changa', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #FFFFFF;
+            background-color: #001F3F;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #141414;
+            color: #FFFFFF;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+        .navbar {
+            padding-bottom:0px ;
+        }
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .navbar-title {
+            font-family: 'Antonio', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 1rem;
+            flex-grow: 1;
+            justify-content: center;
+        }
+
+        .navbar a {
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 20px;
+            min-height: 100vh;
+
+            
+        }
+        
+        
+
+        /* Responsive Flexbox for Sections */
+        .split-container {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            width: 100%;
+        }
+
+        .image-container {
+            flex: 1;
+            margin-right: 20px;
+            min-width: 250px;
+        }
+        .image-container.right {
+            order: 2; /* Right container */
+        }
+
+        .image-container.left {
+            order: 1; /* Left container */
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .content-container {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        /* Slider Container */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #ff7f50 0%, #ff4500 100%);
+            
+        }
+
+        /* Styling for the moving card list */
+        .slider {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            position: absolute;
+            width: max-calc(300px * 10);
+            animation: slide 10s linear infinite;
+        }
+
+        /* Individual cards */
+        .slider .card {
+            width: 300px;
+            height: 200px;
+            margin: 10px;
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform 0.6s ease-in-out, margin 0.6s ease-in-out;
+        }
+
+        
+
+        
+
+        .slider .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: sepia(50%);
+        }
+        
+
+        /* Continuous sliding animation */
+        @keyframes slide-right-to-left {
+            0% {
+                transform: translateX(100%); /* Start from right */
+            }
+            to 
+             {
+                transform: translateX(-100%); /* Move to the left */
+            }
+            
+        }
+
+        /* Hover effect on image */
+        .about-section .slider .card:hover {
+            transform: scale(1.2);
+            z-index: 5;
+            transition-duration: 0.5s; /* Hover effect lasts 1.5 seconds */
+        }
+
+        /* Sponsors Section */
+        .sponsors-section {
+            background-color: #001F3F;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Responsive Media Queries */
+        @media (max-width: 768px) {
+            .split-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .image-container,
+            .content-container {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .navbar-title {
+                font-size: 1.2rem;
+            }
+
+            .navbar a {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .navbar-logo {
+                height: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .split-container {
+                align-items: center;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+
+            .navbar-title {
+                font-size: 1rem;
+            }
+
+            .navbar a {
+                font-size: 0.8rem;
+            }
+
+            .navbar-logo {
+                height: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <img src="assets/img/logo.png" alt="AI Hackflow Logo" class="navbar-logo">
+            <span class="navbar-title">AI Hackathon</span>
+        </div>
+        <div class="navbar-menu">
+            <a class="nav-link" href="#home">Home</a>
+            <a class="nav-link" href="#about">About Us</a>
+            <a class="nav-link" href="#program">Program</a>
+            <a class="nav-link" href="#sponsors">Sponsors</a>
+            <a class="nav-link" href="#contact">Contact</a>
+        </div>
+        <div class="navbar-register">
+            <!-- New Registration Button -->
+            <a data-track-context="AI Hackathon Registration" data-track-intent="Register" class="link_register-button" href="#register">
+                <div class="link_shiny-overlay"></div>
+                <div class="link_content">
+                    <div class="link_text">
+                        <span class="link_main-text">Register Now</span>
+                        <svg aria-hidden="true" class="link_icon" fill="none" height="23" viewBox="0 0 20 21" width="23" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#arrow_icon)">
+                                <path clip-rule="evenodd" d="M7.25 9.75H6.5V11.25H7.25H11.4393L9.96967 12.7197L9.43934 13.25L10.5 14.3107L11.0303 13.7803L13.7803 11.0303C14.0732 10.7374 14.0732 10.2626 13.7803 9.96967L11.0303 7.21967L10.5 6.68934L9.43934 7.75L9.96967 8.28033L11.4393 9.75H7.25ZM10 17C6.41015 17 3.5 14.0899 3.5 10.5C3.5 6.91015 6.41015 4 10 4C13.5899 4 16.5 6.91015 16.5 10.5C16.5 14.0899 13.5899 17 10 17ZM2 10.5C2 14.9183 5.58172 18.5 10 18.5C14.4183 18.5 18 14.9183 18 10.5C18 6.08172 14.4183 2.5 10 2.5C5.58172 2.5 2 6.08172 2 10.5Z" fill="currentColor" fill-rule="evenodd"></path>
+                            </g>
+                            <defs>
+                                <clipPath id="arrow_icon">
+                                    <rect fill="currentColor" height="16" rx="0.25" width="12" x="4.5" y="2.5"></rect>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <span class="link_sub-text">That's the spirit</span>
+                </div>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="page-content">
+         <!-- Before Home Section -->
+        <!-- Image Section with Countdown -->
+<section id="first" class="section first-section">
+    <div class="image-container">
+        <img src="assets/img/homep.png" alt="Home Image">
+    </div>
+
+    <!-- Countdown overlay hidden initially -->
+    <div class="countdown-overlay" id="countdownOverlay">
+        <section class="countdown-container">
+            <div class="days-container">
+                <div class="days"></div>
+                <div class="days-label">days</div>
+            </div>
+            <div class="hours-container">
+                <div class="hours"></div>
+                <div class="hours-label">hours</div>
+            </div>
+            <div class="minutes-container">
+                <div class="minutes"></div>
+                <div class="minutes-label">minutes</div>
+            </div>
+            <div class="seconds-container">
+                <div class="seconds"></div>
+                <div class="seconds-label">seconds</div>
+            </div>
+            
+        </section>
+        
+    </div>
+
+    <style>
+        /* Section Styles */
+        .section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .first-section {
+    padding-top: 120px; /* Adjusted padding to prevent overlap with the navbar */
+    padding-bottom:10px ;
+}
+
+        /* Image fills the entire container */
+        .image-container img {
+            width: 100%;
+            height: 130vh;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            
+        }
+
+        /* Countdown container hidden initially */
+        .countdown-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 2;
+        }
+
+        /* Countdown grid */
+        .countdown-container {
+            display: flex;
+            width: 100%;
+            max-width: 70%;
+            justify-content: space-between;
+            color: white;
+        }
+
+        .days-container, .hours-container, .minutes-container, .seconds-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            width: 140px;
+            height: 140px;
+            border-radius: 99px;
+        }
+
+        .days, .hours, .minutes, .seconds {
+            font-size: 2.5em;
+            margin: 10px 0;
+        }
+
+        .days-label, .hours-label, .minutes-label, .seconds-label {
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        
+
+        /* Responsive for smaller screens */
+        @media (max-width: 800px) {
+            .countdown-container {
+                max-width: 90%;
+            }
+
+            .days-container, .hours-container, .minutes-container, .seconds-container {
+                font-size: 0.8em;
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+
+    <script>
+        // Show countdown when scrolled down
+        let countdownOverlay = document.getElementById("countdownOverlay");
+
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 0) {
+                countdownOverlay.style.opacity = 1;
+            } else {
+                countdownOverlay.style.opacity = 0;
+            }
+        });
+
+        // Countdown function set for October 19th, 2024
+        function startCountdown() {
+            const targetDate = new Date('October 19, 2024 00:00:00').getTime();
+
+            const daysElement = document.querySelector('.days');
+            const hoursElement = document.querySelector('.hours');
+            const minutesElement = document.querySelector('.minutes');
+            const secondsElement = document.querySelector('.seconds');
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const difference = targetDate - now;
+
+                if (difference <= 0) {
+                    clearInterval(countdown);
+                    return;
+                }
+
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                daysElement.textContent = days;
+                hoursElement.textContent = hours;
+                minutesElement.textContent = minutes;
+                secondsElement.textContent = seconds < 10 ? '0' + seconds : seconds;
+            }
+
+            const countdown = setInterval(updateCountdown, 1000);
+        }
+
+        // Start the countdown
+        startCountdown();
+    </script>
+</section>
+
+        <!-- Home Section -->
+        <section id="home" class="section home-section">
+            <style>
+                .home-section {
+                    padding: 40px 20px; /* Add some padding around the section */
+                    background-color: #f9f9f9; /* Light background for contrast */
+                }
+        
+                .home-section .split-container {
+                    display: flex;
+                    align-items: flex-start; /* Align items at the top */
+                    justify-content: space-between; /* Space out the containers */
+                }
+        
+                .home-section .content-container, 
+                .home-section .image-container {
+                    flex: 1; /* Allow both to take equal space */
+                    backdrop-filter: blur(5px); /* Apply blur effect */
+                    padding: 50px; /* Add padding inside each container */
+                    border-radius: 10px; /* Rounded corners */
+                    margin: 10px; /* Margin between containers */
+                     /* Soft shadow */
+                }
+        
+                .home-section .content-container {
+                    background-color: rgba(200, 200, 200, 0.7); /* More gray with transparency */
+                }
+        
+                .home-section .image-container {
+                    /* More gray with transparency */
+                    display: flex; /* Center image */
+                    justify-content: center; /* Center image horizontally */
+                    align-items: flex-start;
+                    width: 80%; /* Make the image responsive */
+                    height: auto; /* Align image at the top */
+                }
+        
+                .home-section .image-container img {
+                    width: 80%; /* Make the image responsive */
+                    height: auto; /* Maintain aspect ratio */
+                    border-radius: 10px; /* Rounded corners for image */
+                    transform: translateY(-30); /* Move the image upwards */
+                }
+        
+                @media (max-width: 768px) {
+                    .home-section .split-container {
+                        flex-direction: column; /* Stack containers on smaller screens */
+                    }
+                }
+            </style>
+        
+            <div class="split-container">
+                <div class="content-container">
+                    <h1>Welcome to AI Hackathon</h1>
+                    <p>This is where creativity meets innovation. AI Hackflow is a thrilling journey of discovery, coding, and challenges.</p>
+                    <p>AI Hackflow is an annual hackathon dedicated to pushing the boundaries of AI. It's designed to empower participants, promote collaboration, and nurture AI talent.</p>
+                </div>
+                <div class="image-container">
+                    <img src="assets/img/homep2.jpg" alt="Home Image">
+                </div>
+            </div>
+        </section>
+        
+
+        <!-- About Us Section -->
+        <section id="about" class="section about-section">
+            <div class="container split-container">
+                <!-- Left Image Slider -->
+                <div class="image-container">
+                    <div class="slider-container left-slider">
+                        <div class="slider">
+                            <!-- Same images in both sliders -->
+                            <div class="card"><img src="assets/pictures/Image 1.jpg" alt="Image 1"></div>  <!-- Duplicate -->
+                            <div class="card"><img src="assets/pictures/Image 2.jpg" alt="Image 2"></div> <!-- Duplicate -->
+                            <div class="card"><img src="assets/pictures/Image 3.jpg" alt="Image 3"></div> <!-- Duplicate -->
+                            <div class="card"><img src="assets/pictures/Image 4.jpg" alt="Image 4"></div> <!-- Duplicate -->
+                            <div class="card"><img src="assets/pictures/Image 5.jpg" alt="Image 5"></div> <!-- Duplicate -->
+                            
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Text Content in the Middle -->
+                <div class="content-container">
+                    <h1>About DeepFlow</h1>
+                    <img src="assets/img/DFlogo.png" alt="AI DeepFlow Logo" class="about-logo">
+                    <p>Empowering students at ESPRIT to learn about AI through workshops, projects, hackathons and more.</p>
+                </div>
+        
+                <!-- Right Image Slider (Same images as left) -->
+                <div class="image-container">
+                    <div class="slider-container right-slider">
+                        <div class="slider">
+                            <!-- Same images in both sliders -->
+                            
+                            <div class="card"><img src="assets/pictures/Image 6.jpg" alt="Image 6"></div> <!-- Duplicate -->
+                            <div class="card"><img src="assets/pictures/Image 7.jpg" alt="Image 7"></div> <!-- Duplicate -->
+                            <div class="card"><img src="assets/pictures/Image 8.jpg" alt="Image 8"></div> <!-- Duplicate -->
+                            <div class="card"><img src="assets/pictures/Image 9.jpg" alt="Image 9"></div> <!-- Duplicate -->
+                            <div class="card"><img src="assets/pictures/Image 10.jpg" alt="Image 10"></div> <!-- Duplicate -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <!-- Program Section -->
+        <section id="program" class="section program-section">
+            <div class="container split-container">
+                <div class="image-container">
+                    <img src="assets/img/program.jpg" alt="Program Image">
+                </div>
+                <div class="content-container">
+                    <h1>Event Program</h1>
+                    <p>Our program includes workshops, coding sessions, and innovative challenges to inspire and challenge participants.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsors Section -->
+        <section id="sponsors" class="section sponsors-section">
+            <div class="container section-content">
+                <h1>Our Sponsors</h1>
+                <p>We are proud to be supported by leading organizations in the AI community, helping drive innovation forward.</p>
+                <div class="sponsor-container">
+                    <div class="sponsor-card">
+                        <a href="https://www.esb.tn/fr/">
+                            <img src="assets/img/esbr.png" alt="esbr 1">
+                        </a>
+                    </div>
+                    <div class="sponsor-card">
+                        <a href="https://yopexhub.com/">
+                            <img src="assets/img/LogoYopex.png" alt="yopex 2">
+                        </a>
+                    </div>
+                    <div class="sponsor-card">
+                        <a href="https://esprit.tn">
+                            <img src="assets/img/ESPRITl.jpg" alt="esprit 3">
+                        </a>
+                    </div>
+                    <div class="sponsor-card">
+                        <a href="https://www.sicam-tunisia.com">
+                            <img src="assets/img/LOGO SICAM.png" alt="SICAM 4">
+                        </a>
+                    </div>
+                    <div class="sponsor-card">
+                        <a href="https://www.leoni-tunisia.com/">
+                            <img src="assets/img/LEONI.png" alt="LEONI 5">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="container split-container">
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d808.4710817760765!2d10.189685267719195!3d36.8993244837304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12e2cb75abbb1733%3A0x557a99cdf6c13b7b!2sESPRIT%20Ecole%20Sup%C3%A9rieure%20Priv%C3%A9e%20d'Ing%C3%A9nierie%20et%20de%20Technologies!5e1!3m2!1sfr!2stn!4v1727946475095!5m2!1sfr!2stn"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map-iframe"></iframe>
+                </div>
+                
+                <div><h1>Contact Us</h1>
+<p>If you have any questions, reach out to us at:</p>
+<div class="contact-info">
+    <a href="tel:+21692233120" class="contact-item">
+        <img src="assets/img/call_2544066.png" alt="Phone" class="icon">
+        +216 922 331 20
+    </a>
+    <a href="mailto:club.deepflow@esprit.tn" class="contact-item">
+        <img src="assets/img/email_2544169.png" alt="Email" class="icon">
+        club.deepflow@esprit.tn
+    </a>
+</div>
+                
+            </div>
+        </section>
+        
+
+    <!-- Custom JS for Slider -->
+    <script>
+        const cards = document.querySelectorAll('.card');
+        const slider = document.querySelector('.slider');
+        let hoverTimeout = null;
+
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                clearTimeout(hoverTimeout);
+                card.classList.add('enlarged');
+            });
+
+            card.addEventListener('mouseleave', () => {
+                clearTimeout(hoverTimeout);
+                hoverTimeout = setTimeout(() => {
+                    card.classList.remove('enlarged');
+                }, 400);
+            });
+        });
+    </script>
+</body>
+
+</html>
+<!-- Footer Section -->
+<footer class="footer-section">
+    <div class="container footer-content">
+        <!-- Left Section: Logo and Description -->
+        <div class="footer-left">
+            <img src="assets/img/logo-text-horizental-white11.png" alt="AI Hackathon Logo" class="footer-logo">
+            <p>For further details, you can reach us using the links below. Join us on an amazing journey of innovation and discovery.</p>
+            <a href="#register" class="footer-register-button">Register Now</a>
+        </div>
+
+        <!-- Middle Section: Navbar Links (Vertical and Centered) -->
+        <div class="footer-middle">
+            <ul class="footer-nav">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#program">Program</a></li>
+                <li><a href="#sponsors">Sponsors</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Right Section: Social Media Links (Vertical) -->
+        <div class="footer-right">
+            <ul class="social-links">
+                <li><a href="https://www.facebook.com/DeepFlowEsprit" target="_blank">
+                    <img src="assets/img/faceb.png" alt="Facebook"> </a></li>
+                <li><a href="https://www.instagram.com/deepflowesprit/" target="_blank">
+                    <img src="assets/img/instalogo.png" alt="Instagram"> </a></li>
+                <li><a href="https://www.linkedin.com/company/deepflowesprit/posts/?feedView=all" target="_blank">
+                    <img src="assets/img/icons8-linkedin-64.png" alt="LinkedIn"> </a></li>
+                <li><a href="https://www.tiktok.com/@deepflowesprit" target="_blank">
+                    <img src="assets/img/tiktok.png" alt="LinkedIn"> </a></li>
+            </ul>
+        </div>
+    </div>
+</footer>

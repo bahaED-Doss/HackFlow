@@ -1,0 +1,477 @@
+/* General Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Changa', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #FFFFFF;
+    background-color: #001F3F; /* Dark Blue for the Western Theme */
+}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #141414;
+    color: #FFFFFF;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-sizing: border-box; /* Include padding in width/height */
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 1rem;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.navbar a {
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+.navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Register Button */
+.link_register-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    max-width: 300px;
+    padding: 10px 20px;
+    background-color: #1E90FF;
+    color: #FFFFFF;
+    font-family: 'Changa', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.055em;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.link_register-button:hover {
+    background-color: #3B7EFF;
+}
+
+/* Section Styles */
+.section {
+    padding: 100px 20px;
+    min-height: 100vh;
+}
+
+.home-section {
+    background: linear-gradient(135deg, #ff7f50 0%, #ff4500 100%);
+}
+
+.about-section, .program-section, .sponsors-section, .contact-section {
+    background-color: #001F3F;
+    color: #FFFFFF;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-content {
+    text-align: center;
+}
+.about-logo{
+  width: 120px; 
+  z-index: 3;
+}
+
+h1 {
+    font-family: 'Antonio', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+}
+
+p {
+    font-family: 'Changa', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+    color: #FFF;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0); /* Transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider {
+    display: flex;
+    justify-content: flex-start; /* Centers the images horizontally */
+    align-items: center; /* Centers the images vertically */
+    position: absolute;
+    width: max-content;
+    animation: slide 10s linear infinite;
+}
+
+.card {
+    width: 300px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Enlarged style when hovering */
+.card.enlarged {
+    transform: scale(1.3)  translateY(10px) ; /* Enlarge the card */
+    z-index: 1000; /* Bring to front */
+    margin: 0 20px; /* Make space for the enlarged card */
+    transition: transform 0.4s ease, margin 0.4s ease;
+}
+
+/* Shrink other cards when an image is hovered */
+.slider.shrink .card {
+    margin: 10px 5px; /* Reduce space between other images */
+    transition: margin 0.3s ease;
+}
+
+/* Sponsors Section */
+.sponsors-section {
+    background-color: #001F3F;
+    text-align: center;
+}
+
+.sponsor-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
+.sponsor-container .sponsor-card:nth-child(4),
+.sponsor-container .sponsor-card:nth-child(5) {
+    grid-column: span 3;
+    margin-top: 40px;
+}
+
+/* Sponsor Card */
+.sponsor-card {
+    width: 150px;
+    height: 150px;
+    border: 5px solid white;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    animation: float 6s ease-in-out infinite;
+}
+
+.sponsor-card img {
+    width: 100%;
+    height: auto;
+}
+
+/* Floating Animation */
+@keyframes float {
+    50% {
+        transform: translateY(100px);
+    }
+    20% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Footer Section */
+.footer-section {
+    background-color: #141414;
+    color: #FFFFFF;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Left Section: Align to the left edge */
+.footer-left {
+    flex: 1;
+    text-align: left;
+    padding-left: 0;
+}
+
+.footer-logo {
+    width: 200px;
+    
+   
+}
+
+.footer-left p {
+    font-family: 'Changa', sans-serif;
+    font-size: 1rem;
+    color: #cccccc;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.footer-register-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1E90FF;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.footer-register-button:hover {
+    background-color: #3B7EFF;
+}
+
+/* Middle Section: Centered Vertical Navbar Links */
+.footer-middle {
+    flex: 1;
+    text-align: center;
+}
+
+.footer-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-nav li {
+    margin-bottom: 10px;
+}
+
+.footer-nav li a {
+    font-family: 'Changa', sans-serif;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+}
+
+.footer-nav li a:hover {
+    color: #1E90FF;
+}
+
+/* Right Section: Vertical Social Media Links */
+.footer-right {
+    flex: 1;
+    text-align: right;
+    padding-right: 0;
+}
+
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social-links li {
+    margin-bottom: 10px;
+}
+
+.social-links li a {
+    font-family: 'Changa', sans-serif;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.social-links li a img {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+    vertical-align: middle;
+    filter: invert(100%);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-links li a img:hover {
+    transform: translateY(-5px);
+    filter: none;
+}
+
+/* Mobile Responsiveness */
+
+/* General Mobile Adjustments */
+@media (max-width: 768px) {
+    /* Navbar */
+    .navbar {
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+
+    .navbar-menu {
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    .link_register-button {
+        width: 100%;
+        max-width: none;
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    /* Section Layout Adjustments */
+    .split-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .image-container, .content-container {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    /* Sponsors Section */
+    .sponsor-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 15px;
+    }
+
+    .sponsor-container .sponsor-card {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* Smaller Mobile Adjustments (Phones) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    .navbar-title {
+        font-size: 1rem;
+    }
+
+    .navbar a {
+        font-size: 0.8rem;
+    }
+
+    .link_register-button {
+        font-size: 0.7rem;
+        padding: 6px 12px;
+    }
+
+    .navbar-logo {
+        height: 25px;
+    }
+
+    /* Smaller sponsor cards */
+    .sponsor-container .sponsor-card {
+        width: 100px;
+        height: 100px;
+    }
+
+    /* Footer adjustments */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-right, .footer-left {
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .footer-nav li {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .social-links li {
+        margin-bottom: 15px;
+    }
+    .footerr-logo {
+        height: 25px;
+    }
+}
+
+
+
+
+/* Slide animation */
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+.split-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px; /* Adjust spacing between map and content */
+}
+
+.content-container {
+    flex: 1; /* Take up available space */
+    text-align: left; /* Align text to the right */
+}
+
+.map-container {
+    flex: 1; /* Take up available space */
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column; /* Change to 'row' if you want them side by side */
+    margin-top: 10px; /* Space between the paragraph and contact info */
+}
+
+.icon {
+    width: 16px; /* Adjust the size of the icons */
+    height: 16px; /* Maintain aspect ratio */
+    margin-right: 5px; /* Space between icon and text */
+    vertical-align: middle; /* Aligns icon with text */
+}
