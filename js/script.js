@@ -67,3 +67,4 @@ cards.forEach(card => {
       slider.classList.remove('shrink');
   });
 });
+

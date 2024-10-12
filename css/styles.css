@@ -64,7 +64,11 @@ body {
         }
 
         .navbar a:hover {
-            background-color: #141414;
+            
+            
+                color: #ff7f50;
+            
+            
         }
 
 /* Register Button */
@@ -353,6 +357,7 @@ p {
     }
 
     .navbar a {
+        
         font-size: 0.8rem;
     }
 
@@ -435,6 +440,9 @@ p {
     height: 16px; 
     margin-right: 5px; 
     vertical-align: middle; 
+}
+.contact-item:hover{
+    color:#ff7f50
 }
 
 /* General styles for all sections */
@@ -567,7 +575,7 @@ p {
 }
 
 .footer-nav li a:hover {
-    color: #1E90FF;
+    color: #ff7f50;
 }
 
 /* Right Section: Vertical Social Media Links */
