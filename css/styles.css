@@ -435,12 +435,7 @@ p {
     margin-top: 10px; 
 }
 
-.icon {
-    width: 16px; 
-    height: 16px; 
-    margin-right: 5px; 
-    vertical-align: middle; 
-}
+
 .contact-item:hover{
     color:#ff7f50
 }
