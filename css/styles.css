@@ -238,23 +238,18 @@ p {
 .sponsors-section {
     background-color: #001F3F;
     text-align: center;
-    display: flex; 
-    justify-content: center; 
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
 }
 
 .sponsor-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on large screens */
     gap: 40px;
-    justify-items: center; 
-    max-width: 1200px; 
-    width: 100%; 
-}
-
-.sponsor-container .sponsor-card:nth-child(4),
-.sponsor-container .sponsor-card:nth-child(5) {
-    grid-column: span 3;
-    margin-top: 40px;   
+    justify-items: center;
+    max-width: 1200px;
+    width: 100%;
 }
 
 /* Sponsor Card */
@@ -265,7 +260,7 @@ p {
     border-radius: 50%;
     overflow: hidden;
     box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
-    animation: float 6s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite; /* Floating animation */
 }
 
 .sponsor-card img {
@@ -276,26 +271,42 @@ p {
 /* Floating Animation */
 @keyframes float {
     50% {
-        transform: translateY(100px);
+        transform: translateY(20px); /* Adjusted Y-axis value */
     }
-    20% {
-        transform: translateY(-20px);
-    }
-}
-
-
-
-
-/* Floating Animation */
-@keyframes float {
-    50% {
-        transform: translateY(100px);
-    }
-    20% {
-        transform: translateY(-20px);
+    0%, 100% {
+        transform: translateY(0); /* Starting and ending positions */
     }
 }
 
+/* Media Queries */
+@media (max-width: 768px) {
+    .sponsor-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    }
+
+    .sponsor-card {
+        width: 120px;
+        height: 120px;
+        animation: float 6s ease-in-out infinite; /* Reapply the animation */
+    }
+}
+
+@media (max-width: 576px) {
+    .sponsor-container {
+        grid-template-columns: repeat(2, 1fr); /* 1 column on small phones */
+    }
+
+    .sponsor-card {
+        width: 100px;
+        height: 100px;
+        animation: float 6s ease-in-out infinite; /* Reapply the animation */
+    }
+
+    .sponsor-card img {
+        width: 100%;
+        height: auto;
+    }
+}
 
 /* Mobile Responsiveness */
 
@@ -330,16 +341,7 @@ p {
         margin-bottom: 20px;
     }
 
-    /* Sponsors Section */
-    .sponsor-container {
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 15px;
-    }
-
-    .sponsor-container .sponsor-card {
-        width: 120px;
-        height: 120px;
-    }
+   
 }
 
 /* Smaller Mobile Adjustments (Phones) */
@@ -370,11 +372,7 @@ p {
         height: 25px;
     }
 
-    /* Smaller sponsor cards */
-    .sponsor-container .sponsor-card {
-        width: 100px;
-        height: 100px;
-    }
+  
 
     /* Footer adjustments */
     .footer-content {
